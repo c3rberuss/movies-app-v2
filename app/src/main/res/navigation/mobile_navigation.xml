@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/navigation_popular">
+
+    <fragment
+        android:id="@+id/navigation_popular"
+        android:name="xyz.c3rberuss.movies.popular.PopularFragment"
+        android:label="@string/popular_title"
+        tools:layout="@layout/fragment_popular">
+        <action
+            android:id="@+id/action_navigation_popular_to_movieDetailActivity"
+            app:destination="@id/movie_detail_activity" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_favorites"
+        android:name="xyz.c3rberuss.movies.favorites.FavoritesFragment"
+        android:label="@string/favorites_title"
+        tools:layout="@layout/fragment_favorites">
+        <action
+            android:id="@+id/action_navigation_favorites_to_movieDetailActivity"
+            app:destination="@id/movie_detail_activity" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_no_favorites"
+        android:name="xyz.c3rberuss.movies.no_favorites.NoFavoritesFragment"
+        android:label="@string/no_favorite_title"
+        tools:layout="@layout/fragment_no_favorites">
+        <action
+            android:id="@+id/action_navigation_no_favorites_to_movieDetailActivity"
+            app:destination="@id/movie_detail_activity" />
+    </fragment>
+    <activity
+        android:id="@+id/movie_detail_activity"
+        android:name="xyz.c3rberuss.movies.detail.MovieDetailActivity"
+        android:label="activity_movie_detail"
+        tools:layout="@layout/activity_movie_detail">
+        <argument
+            android:name="movieId"
+            app:argType="integer" />
+        <argument
+            android:name="isFavorite"
+            app:argType="boolean"
+            android:defaultValue="false" />
+        <argument
+            android:name="isNofavorite"
+            app:argType="boolean"
+            android:defaultValue="false" />
+    </activity>
+    <activity
+        android:id="@+id/image_view_activity"
+        android:name="xyz.c3rberuss.movies.image_view.ImageViewActivity"
+        android:label="activity_image_view"
+        tools:layout="@layout/activity_image_view">
+        <argument
+            android:name="url"
+            app:argType="string" />
+    </activity>
+</navigation>
